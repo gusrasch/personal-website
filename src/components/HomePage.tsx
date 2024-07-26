@@ -10,6 +10,8 @@ const HomePage: React.FC = () => {
         alignItems: 'center',
         justifyContent: 'center',
         p: 3,
+        bgcolor: 'background.default',
+        color: 'text.primary',
       }}
     >
       <Grid container spacing={4} alignItems="center" justifyContent="center">
@@ -21,7 +23,7 @@ const HomePage: React.FC = () => {
               fontSize: { xs: '3rem', sm: '4rem', md: '6rem' },
               fontWeight: 700,
               letterSpacing: '0.1em',
-              paddingLeft: { xs: '1rem', sm: '2rem', md: '4rem' }, 
+              paddingLeft: { xs: '1rem', sm: '2rem', md: '4rem' },
             }}
           >
             GUS RASCH
@@ -35,10 +37,17 @@ const HomePage: React.FC = () => {
               alignItems: { xs: 'center', md: 'flex-start' },
             }}
           >
-            {['LINKEDIN', 'GITHUB', 'SUBSTACK', 'RESUME'].map((item) => (
+            {[
+              { name: 'LINKEDIN', href: 'https://www.linkedin.com/in/gusrasch' },
+              { name: 'GITHUB', href: 'https://github.com/gusrasch' },
+              { name: 'SUBSTACK', href: 'https://gusrasch.substack.com' },
+              { name: 'RESUME', href: '/gus-resume.pdf' },
+            ].map((item) => (
               <Link
-                key={item}
-                href="#"
+                key={item.name}
+                href={item.href}
+                target={item.name === 'RESUME' ? '_blank' : '_self'}
+                rel={item.name === 'RESUME' ? 'noopener noreferrer' : ''}
                 underline="hover"
                 color="inherit"
                 sx={{
@@ -47,7 +56,7 @@ const HomePage: React.FC = () => {
                   '&:hover': { color: 'primary.main' },
                 }}
               >
-                {item}
+                {item.name}
               </Link>
             ))}
           </Box>
