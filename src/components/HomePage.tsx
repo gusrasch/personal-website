@@ -1,68 +1,58 @@
 import React from 'react';
-import { Container, Typography, Box, Button, Grid } from '@mui/material';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import RssFeedIcon from '@mui/icons-material/RssFeed';
-import DescriptionIcon from '@mui/icons-material/Description';
+import { Box, Typography, Link, Grid } from '@mui/material';
 
 const HomePage: React.FC = () => {
   return (
-    <Container maxWidth="md">
-      <Box
-        sx={{
-          minHeight: '100vh',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          textAlign: 'center',
-        }}
-      >
-        <Typography variant="h2" component="h1" gutterBottom>
-          Your Name
-        </Typography>
-        <Typography variant="h5" component="h2" gutterBottom>
-          Web Developer | Tech Enthusiast | Lifelong Learner
-        </Typography>
-        <Box sx={{ my: 4 }}>
-          <Grid container spacing={2} justifyContent="center">
-            <Grid item>
-              <Button
-                variant="contained"
-                color="primary"
-                startIcon={<LinkedInIcon />}
-                href="#linkedin"
+    <Box
+      sx={{
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        p: 3,
+      }}
+    >
+      <Grid container spacing={4} alignItems="center" justifyContent="center">
+        <Grid item xs={12} md={8}>
+          <Typography
+            variant="h1"
+            component="h1"
+            sx={{
+              fontSize: { xs: '3rem', sm: '4rem', md: '6rem' },
+              fontWeight: 700,
+              letterSpacing: '0.1em',
+            }}
+          >
+            GUS RASCH
+          </Typography>
+        </Grid>
+        <Grid item xs={12} md={4}>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: { xs: 'center', md: 'flex-start' },
+            }}
+          >
+            {['LINKEDIN', 'GITHUB', 'SUBSTACK', 'RESUME'].map((item) => (
+              <Link
+                key={item}
+                href="#"
+                underline="hover"
+                color="inherit"
+                sx={{
+                  fontSize: '1.2rem',
+                  mb: 2,
+                  '&:hover': { color: 'primary.main' },
+                }}
               >
-                LinkedIn
-              </Button>
-            </Grid>
-            <Grid item>
-              <Button
-                variant="contained"
-                color="secondary"
-                startIcon={<RssFeedIcon />}
-                href="#substack"
-              >
-                Substack
-              </Button>
-            </Grid>
-            <Grid item>
-              <Button
-                variant="contained"
-                color="info"
-                startIcon={<DescriptionIcon />}
-                href="#resume"
-              >
-                Resume
-              </Button>
-            </Grid>
-          </Grid>
-        </Box>
-        <Typography variant="body1" sx={{ mt: 4 }}>
-          Welcome to my personal website. I'm passionate about technology and
-          always excited to take on new challenges in the world of web development.
-        </Typography>
-      </Box>
-    </Container>
+                {item}
+              </Link>
+            ))}
+          </Box>
+        </Grid>
+      </Grid>
+    </Box>
   );
 };
 
