@@ -1,11 +1,15 @@
 import React from 'react';
+import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
 import HomePage from './components/HomePage';
+
+const theme = createTheme();
 
 const App: React.FC = () => {
   return (
-    <div className="App">
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
       <HomePage />
-    </div>
+    </ThemeProvider>
   );
 };
 
