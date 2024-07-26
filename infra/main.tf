@@ -58,7 +58,7 @@ resource "google_compute_managed_ssl_certificate" "website" {
   name = "${var.bucket_name}-cert"
 
   managed {
-    domains = [var.domain_name]
+    domains = var.domain_names
   }
 }
 
@@ -80,5 +80,27 @@ resource "google_compute_global_forwarding_rule" "website" {
   name       = "${var.bucket_name}-forwarding-rule"
   target     = google_compute_target_https_proxy.website.self_link
   port_range = "443"
+  ip_address = google_compute_global_address.website.address
+}
+
+# HTTP to HTTPS redirect
+resource "google_compute_url_map" "https_redirect" {
+  name = "${var.bucket_name}-https-redirect"
+
+  default_url_redirect {
+    https_redirect = true
+    strip_query    = false
+  }
+}
+
+resource "google_compute_target_http_proxy" "https_redirect" {
+  name    = "${var.bucket_name}-http-proxy"
+  url_map = google_compute_url_map.https_redirect.self_link
+}
+
+resource "google_compute_global_forwarding_rule" "https_redirect" {
+  name       = "${var.bucket_name}-http-forwarding-rule"
+  target     = google_compute_target_http_proxy.https_redirect.self_link
+  port_range = "80"
   ip_address = google_compute_global_address.website.address
 }

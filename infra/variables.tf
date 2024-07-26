@@ -11,6 +11,7 @@ variable "bucket_name" {
   description = "The name of the GCS bucket"
 }
 
-variable "domain_name" {
-  description = "The domain name for the website"
+variable "domain_names" {
+  description = "The domain name(s) for the website"
+  type        = list(string)
 }
