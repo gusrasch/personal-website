@@ -21,6 +21,7 @@ const HomePage: React.FC = () => {
               fontSize: { xs: '3rem', sm: '4rem', md: '6rem' },
               fontWeight: 700,
               letterSpacing: '0.1em',
+              paddingLeft: { xs: '1rem', sm: '2rem', md: '4rem' }, 
             }}
           >
             GUS RASCH
