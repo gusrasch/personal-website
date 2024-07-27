@@ -20,3 +20,15 @@ docker build -t personal-website .
 docker run -p 8080:80 personal-website
 ```
 3. Open `http://localhost:8080` in your browser
+
+## Deployment
+
+0. `gcloud auth login`
+
+FOR INFRA CHANGES:
+1. `terraform plan`
+2. `terraform apply`
+
+FOR SITE CHANGES:
+1. `npm run build`
+2. `gsutil -m cp -r ./build/* gs://gusras-ch-bucket/`
