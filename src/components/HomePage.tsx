@@ -23,7 +23,8 @@ const HomePage: React.FC = () => {
               fontSize: { xs: '3rem', sm: '4rem', md: '6rem' },
               fontWeight: 700,
               letterSpacing: '0.1em',
-              paddingLeft: { xs: '1rem', sm: '2rem', md: '4rem' },
+              textAlign: { xs: 'center', md: 'left' }, // Center on mobile, left-aligned on larger screens
+              paddingLeft: { xs: 0, md: '4rem' }, // Remove left padding on mobile
             }}
           >
             GUS RASCH
@@ -34,7 +35,7 @@ const HomePage: React.FC = () => {
             sx={{
               display: 'flex',
               flexDirection: 'column',
-              alignItems: { xs: 'center', md: 'flex-start' },
+              alignItems: 'center', // Always center-align the links
             }}
           >
             {[
