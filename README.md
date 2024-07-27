@@ -30,5 +30,4 @@ FOR INFRA CHANGES:
 2. `terraform apply`
 
 FOR SITE CHANGES:
-1. `npm run build`
-2. `gsutil -m cp -r ./build/* gs://gusras-ch-bucket/`
+1. `source deploy.sh`
