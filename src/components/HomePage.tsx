@@ -1,5 +1,12 @@
 import React from 'react';
-import { Box, Typography, Link, Grid } from '@mui/material';
+// If we're trying to maximize efficiency in terms of store
+// it'll be better to import these components one by one
+
+// importing from @mui/material would store ALL components and not just the ones you're using
+import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
+import Link from '@mui/material/Link'
+import Grid from '@mui/material/Grid'
 
 const HomePage: React.FC = () => {
   return (
@@ -16,6 +23,11 @@ const HomePage: React.FC = () => {
     >
       <Grid container spacing={4} alignItems="center" justifyContent="center">
         <Grid item xs={12} md={8}>
+          {/* 
+            Depends on how much further we're going, but putting common CSS within a global
+            override, for example the differing fontSize at different sizes
+            https://mui.com/material-ui/customization/how-to-customize/#4-global-css-override
+          */}
           <Typography
             variant="h1"
             component="h1"
