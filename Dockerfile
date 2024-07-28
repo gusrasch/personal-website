@@ -4,6 +4,7 @@ FROM node:18
 # Set the working directory in the container
 WORKDIR /app
 
+# I don't think this COPY is necessary, can't we just COPY . . here instead?
 # Copy package.json and package-lock.json
 COPY package*.json ./
 
