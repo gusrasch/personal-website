@@ -2,3 +2,5 @@
 /infra/.terraform
 /infra/terraform.tfstate*
 /build
+
+.firebase
