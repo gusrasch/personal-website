@@ -39,8 +39,8 @@ const HomePage: React.FC = () => {
             }}
           >
             {[
-              { name: 'SUBSTACK', href: 'https://gusrasch.substack.com' },
               { name: 'GITHUB', href: 'https://github.com/gusrasch' },
+              { name: 'SUBSTACK', href: 'https://gusrasch.substack.com' },
               { name: 'LINKEDIN', href: 'https://www.linkedin.com/in/gusrasch' },
               { name: 'RESUME', href: '/gus-resume.pdf' },
             ].map((item) => (
